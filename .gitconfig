@@ -1,0 +1,62 @@
+[user]
+	name = jacky
+	email = jacky_zh163@163.com
+
+[alias]
+    co = checkout
+    ci = commit
+    st = status -sb
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    ls = log --stat
+    pr = pull --rebase
+    rank = shortlog -sn --no-merges
+[color]
+    diff = auto
+        status = auto
+        branch = auto
+        interactive = auto
+        ui = true
+        pager = true
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[receive]
+    denyCurrentBranch = ignore
+[core]
+    editor = mvim -f
+    excludesfile = /Users/jackyzheng/.gitignore_global
+
+[diff]
+    tool = kaleidoscope
+
+[merge]
+    tool = araxis
+
+[difftool]
+    prompt = false
+
+[difftool "kaleidoscope"]
+    cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    #path = 
+
+[mergetool "sourcetree"]
+    cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+
+[commit]
+    template = ~/stCommitMsg
